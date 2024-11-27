@@ -71,7 +71,7 @@ namespace _8031_mysolution
 
             return base.CalculatePrice() * sizeMultiplier;
 
-            // Modern switch expression alternative (commented out for reference):
+            // Modern switch expression alternative:
             // double sizeMultiplier = bearSize switch
             // {
             //     "LARGE" => 1.15,
@@ -134,14 +134,15 @@ namespace _8031_mysolution
             return totalValue;
         }
 
-        public int CountLargeTeddyBears()
+        public int CountLargeBears()
         {
             int count = 0;
-            for (int i = 0; i < counter; i++)
-                if (toys[i] is TeddyBear teddy && teddy.GetBearSize() == "LARGE")
+            foreach (Toy t in toys)
+                if (t is TeddyBear && ((TeddyBear)t).GetBearSize() == "Large")
                     count++;
             return count;
         }
+
 
         public double CalculateTotalValue(double discount)
         {
